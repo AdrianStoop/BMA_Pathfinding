@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+function pdf() {
+  ls *.tex | entr pdflatex bma.tex -halt-on-error
+}
+
+function md() {
+  ls *.tex | entr pandoc bma.tex --to markdown_github -o README.md
+}
+
+case "$1" in
+  md)
+    md
+    ;;
+  pdf)
+    pdf
+    ;;
+  *)
+esac
