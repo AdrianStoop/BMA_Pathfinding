@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-sm
+        h1= title
+        p
+          a(href="https://github.com/fuerbringer" target="_blank") Severin Fürbringer
+          |  (severin
+          i.fa.fa-at
+          | fsfe.org)
+          span : Entwicklung und BMA-Dokument 
+          br
+          a(href="https://github.com/0x0Tbex" target="_blank") Adrian Stoop
+          |  (adrian-stoop
+          i.fa.fa-at
+          | gmx.ch)
+          span : Datenauswertung und BMA-Dokument 
+        p Diese Arbeit ist frei unter der AGPL 3 Lizenz verfügbar: 
+          a(href="https://github.com/fuerbringer/bma" target="_blank") Quelltext
+          | . Die Quelltextdokumentation ist hier zugänglich: 
+          a(href="/docs" target="_blank") /docs
+        h2 Programmbibliotheken
+        h3 PathFinding.js
+        p Diese Arbeit wurde durch 
+          a(href="https://github.com/qiao/PathFinding.js" target="_blank") PathFinding.js 
+          |  und deren Autoren möglich gemacht. PathFinding.js ist frei unter der MIT Lizenz verfügbar.
+        h3 Maze
+        p Einzelne Zeilen Code wurden von 
+          a(href="https://github.com/semibran/maze" target="_blank") semibran/maze
+          |  für die Generierung von Labyrinthen eingesetzt. Der Code ist unter der MIT Lizenz frei verfügbar.
+

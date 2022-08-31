@@ -1,0 +1,35 @@
+{
+  "name": "bma",
+  "version": "0.0.0",
+  "private": false,
+  "scripts": {
+    "start": "npm run build & node ./bin/www",
+    "postinstall": "npm run build",
+    "heroku-prebuild": "npm install --only=dev",
+    "build": "webpack --mode none",
+    "watch": "webpack --watch --mode development",
+    "test": "eslint src/{grid,helper,index,maze}.js ./bin/* ./routes/* | mocha test --recursive"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "morgan": "^1.9.1",
+    "node-sass-middleware": "0.11.0",
+    "pathfinding": "^0.4.18",
+    "pug": "^2.0.4",
+    "serve-index": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "jsdoc": "^3.6.3",
+    "mocha": "^5.2.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

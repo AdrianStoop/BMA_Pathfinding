@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .jumbotron
+      .row
+          .col-6
+              h1 Willkommen!
+              h2 Um was geht es?
+              p Pathfinding Algorithmen! Sie finden in einem zweidimensionalen Raum den schnellsten Weg vom Start- zum Endpunkt.
+              p Unsere Webapplikation veranschaulicht die verschiedenen Arten der Pathfinder, erklärt deren Funktionsweisen und analysiert allfällige Abweichungen.
+              a(href="/intro").btn.btn-primary Zur Einführung
+              pre: code#debug-out
+          .col-6
+            img.img-fluid(src="/images/pathfinding_2d_illustration.svg")
+            p
+              a(href="https://commons.wikimedia.org/wiki/File:Pathfinding_2D_Illustration.svg" target="_blank") Quelle
+              |  (Public Domain)

@@ -1,0 +1,22 @@
+script.
+  // This snippet has to be written in a more compatible style due to not being sent through babel/webpack
+  var allowDiagonal = '!{query.diagonal}' == 'true'; // Passed through GET
+  var gridWidth = parseInt(!isNaN(!{query.gridWidth}) ? '!{query.gridWidth}' : 24);
+  var gridHeight = parseInt(!isNaN(!{query.gridHeight}) ? '!{query.gridHeight}' : 24);
+  var gridType = '!{query.gridType}';
+  var algorithm = '!{query.algorithm}'.length > 0 ? bma.pathFinding['!{query.algorithm}'] : bma.pathFinding.AStarFinder
+  var heuristic = '!{query.heuristic}' ? '!{query.heuristic}' : 'manhattan';
+  // Start off with showing the aStarDemo
+  addEventListener("DOMContentLoaded", function() {
+    bma.algorithmDemo({
+      algorithm: algorithm,
+      heuristic: heuristic,
+      allowDiagonal: allowDiagonal,
+      gridType: gridType,
+      gridWidth: gridWidth,
+      gridHeight: gridHeight
+    });
+    // Load preset grid / scenarios from src/preset-grids.js
+    // Load available pathfinding algorithms
+    bma.initAlgorithmDemoInterface('!{query.algorithm}', '!{query.gridType}', heuristic)
+  }, false);

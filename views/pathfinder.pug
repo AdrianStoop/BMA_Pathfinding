@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-sm
+        h1= title
+        p Auf der rechten Seite sieht man die in der 
+          a(href="/introduction#3") Einführung 
+          |  erwähnten Pathfinder &laquo;in action&raquo;. Der grüne Block repräsentiert jeweils den Endpunkt und der blaue den Startpunkt.
+          | Der ausgewählte Pathfinder findet zwischen diesen zwei Pünkten dann den passenden Weg.
+        p Diese Seite soll zur kurzen visuellen Einführung in die Pathfinder dienen. 
+          | Parameter lassen sich vom Nutzer unter &laquo;Steuerung&raquo; anpassen.
+        include descriptions/astar
+        include descriptions/bestfirst
+        include descriptions/breadthfirst
+
+        h2 Nächster Schritt
+        p Im 
+          a(href="/comparison") nächsten Schritt
+          |  wird's interessant. Wir vergleichen die Pathfinder nebeneinander auf ihre Eigenschaften.
+      .col-sm
+        include pathfinder-block
+  include pathfinder-script

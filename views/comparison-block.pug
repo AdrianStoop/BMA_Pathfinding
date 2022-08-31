@@ -1,0 +1,43 @@
+.row: .col-sm: hr
+.row
+  .col-6
+    #comparison-status.d-none
+      // Status
+      .row
+        .col-sm
+          h3 Status
+      .row
+        .col-4: p(title="") Pathfinder:
+        .col-8: div#stat-pathfinders
+      .row
+        .col-4: p(title="Wie viel Durchläufe und Vergleiche der jeweiligen Pathfinder es gab") Anzahl Durchläufe:
+        .col-8: p#stat-count-runs: i Wird berechnet...
+      .row
+        .col-4: p(title="") Raster/Labyrint Art:
+        .col-8: p#stat-grid-type: i Wird berechnet...
+      .row
+        .col-sm
+          h4 Messungen
+          if(query.submit && query.runs > 1)
+            p Für die Auswertung relevante Daten. Die Werte beziehen sich auf alle der  
+              span=query.runs
+              |  Durchläufe.
+          else
+            p Für die Auswertung relevante Daten.
+      .row
+        .col-4: p(title="") Anzahl Operationen:
+        .col-8: pre#stat-total-operations: i Wird berechnet...
+      .row
+        .col-4: p(title="") Zurückgelegter Weg:
+        .col-8: pre#stat-total-distance: i Wird berechnet...
+      .row
+        .col-4: p(title="") Vergangene Rechenzeit*:
+        .col-8: pre#stat-elapsed-times: i Wird berechnet...
+      .row
+        .col-sm
+          p: small * Bei Rechenzeiten unter 1 ms rundet Javascript den Wert auf 0 ab.
+                
+
+  if query.submit
+    .col-6
+      include comparison-parameter-block

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-sm
+        h1= title
+        p Pathfinding-Algorithmen werden hier verglichen (Side-by-side).
+        p In der 
+          a(href="/intro") Einführung
+          |  haben wir bereits die drei ausgewählten Pathfinder (A*, BestFirst und BreadthFirst) genannt.
+          | Diese Pathfinder werden auf dieser Seite parallel und mehrmals hintereinander verglichen.
+          | Als Resultat ersichtlich sind dann folgende Eigenschaften:
+        ul
+          li Anzah Operationen
+          li Zurückgelegter Weg
+          li Rechenzeit
+        p Visuell ersichtlich sind die Durchläufe. Die Wege der jeweiligen Pathfinder sind verschieden gefärbt.  
+          | Vom Nutzer anpassbar sind als Parameter die Anzahl Durchläufe, Rasterart und Rastergrösse.
+
+      .col-sm
+        include comparison-raster
+
+    .row
+      .col-sm
+        include comparison-block
+  include comparison-script

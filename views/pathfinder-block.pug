@@ -1,0 +1,102 @@
+h2 Raster
+.row
+  .col-sm
+    #container
+#custom-selected-waypoints-form.d-none
+  // Horizontal line
+  .row: .col-sm: hr
+  
+  form(action="" method="get")
+    input(type="hidden" name="custom-selected-waypoints" id="custom-selected-waypoints")
+    input(type="hidden" name="matrix-data-b64" id="matrix-data-b64")
+    input(type="hidden" name="matrix-data-original-waypoints" id="matrix-data-original-waypoints")
+    input(type="hidden" name="custom-waypoints" id="custom-waypoints" value="true")
+    // Copied input fields from below
+    input(type="hidden" name="heuristic" id="custom-controls-heuristic")
+    input(type="hidden" name="algorithm" id="custom-controls-algorithm")
+    input(type="hidden" name="diagonal" id="custom-controls-diagonal")
+    .row
+      .col-sm
+        .form-group
+          input.btn.btn-secondary(type="submit" value="Mit eigenen Wegpunkten neu generieren")
+  
+// Horizontal line
+.row: .col-sm: hr
+
+// Status
+.row
+  .col-sm
+    h3 Messungen
+.row
+  .col-4: p Algorithmus:
+  .col-8: u#stat-algorithm: i Nicht definiert
+.row
+  .col-4: p Start- und Endpunkt:
+  .col-4: p#stat-start: i Berechne...
+  .col-4: p#stat-end: i Berechne...
+.row
+  .col-4: p Zurückgelegter Weg:
+  .col-8: p#stat-distance: i Berechne...
+.row
+  .col-4: p Operationen:
+  .col-8: p#stat-operations: i Berechne...
+.row
+  .col-4: p Vergangene Zeit:
+  .col-8: p#stat-elapsed-time: i Berechne...
+
+// Horizontal line
+.row: .col-sm: hr
+
+.row
+  .col-sm
+    h3 Steuerung
+
+// Controls
+form(action="" method="get")
+  .row
+    .col-4: label(for="controls-algorithm") Pathfinding Algorithmus:
+    .col-sm
+        .form-group
+          select.form-control(name="algorithm" id="controls-algorithm")
+  .row
+    .col-4: label(for="controls-heuristic") Heuristik:
+      sup 1
+    .col-sm
+        .form-group
+          select.form-control(name="heuristic" id="controls-heuristic")
+  .row
+    .col-4: label(for="controls-diagonal") Rastertyp:
+    .col-sm
+        .form-group
+          select.form-control(name="gridType" id="controls-type")
+  .row
+    .col-4: label(for="controls-dimension") Rastergrösse:
+    .col-sm
+        .form-group
+          .row
+            .col-6: input.form-control(type="number" min="6" max="64" name="gridWidth" placeholder="Breite" value=(query.gridWidth ? query.gridWidth : 24))
+            .col-6: input.form-control(type="number" min="6" max="64" name="gridHeight" placeholder="Höhe" value=(query.gridHeight ? query.gridHeight : 24))
+  .row
+    .col-4: label(for="controls-diagonal") Diagonale zulassen:
+    .col-sm
+        .form-group
+          select.form-control(name="diagonal" id="controls-diagonal")
+            if query.diagonal == "true"
+              option(value="true" "selected") Ja
+              option(value="false") Nein
+            else
+              option(value="true") Ja
+              option(value="false" "selected") Nein
+  .row
+    .col-4: p
+    .col-sm
+      .form-group
+        input.btn.btn-primary(type="submit" value="Neu generieren")
+  .row
+    .col-sm: p
+      sup 1
+      |  nicht jeder pathfinder verwendet die ausgewählte Heuristik.
+  .row
+    .col-sm: p
+      sup 2
+      |  bei vorgefertigten Rastern wird die Rastergrösse nicht beachtet.
